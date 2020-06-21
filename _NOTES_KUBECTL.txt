@@ -1,0 +1,57 @@
+https://rominirani.com/tutorial-getting-started-with-kubernetes-with-docker-on-mac-7f58467203fd
+1) kubectl version
+   	get version
+2) kubectl config current-context
+   	show cluster <- Switched to context “docker-for-desktop” with kubectl config use-context docker-for-desktop
+3) kubectl cluster-info
+	get info on cluster 
+4) kubectl get nodes
+	get the nodes
+5) kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml 
+-> to access use 'kubectl proxy' and go to  http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
+	Deploy Kubernetes Dashboard
+6) GET ACCESS TO DASHBOARD
+	kubectl create serviceaccount dashboard-admin-sa
+	kubectl create clusterrolebinding dashboard-admin-sa --clusterrole=cluster-admin --serviceaccount=default:dashboard-admin-sa
+	kubectl get secrets
+	kubectl describe secret dashboard-admin-sa-token-7g8j6
+
+
+	kubectl create serviceaccount jenkins
+	kubectl get serviceaccounts jenkins -o yaml
+	kubectl get secret jenkins-token-dqv88 -o yaml
+
+DETAILS
+
+Namespace: Kubernetes supports multiple virtual clusters backed by the same physical cluster. These virtual clusters are called namespaces. They let you partition resources into logically named groups.
+
+7) kubectl run hello-nginx --image=nginx --port=80
+	run nginx app in kubernetes
+
+8) kubectl get pods
+	list pods on kube
+
+9) kubectl describe pod hello-nginx-c56599c4d-dwfln
+	get more info on pod/node
+
+
+10) kubectl get deployments
+    kubectl expose deployment hello-nginx --type=NodePort 
+	expose service “hello-nginx”
+
+11) kubectl get services
+    kubectl describe service hello-nginx
+    
+
+12) kubectl scale --replicas=3 deployment/hello-nginx
+	scale the number of pods
+
+##################################
+#Kubernetes - Images
+##################################
+
+
+
+
+
+	
