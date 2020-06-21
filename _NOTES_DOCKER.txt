@@ -1,0 +1,24 @@
+https://stackify.com/docker-tutorial/
+1) docker run -it ubuntu bash 
+   	start a new ubuntu container and ssh into it.
+2) docker ps -a 
+   	show all containers
+3) docker top container_name
+	show running process inside container
+4) docker container prune 
+	kill all stopped containers
+5) docker run -v /Users/baotran/Desktop/Web/nginx:/usr/share/nginx/html:ro -p 8080:80 -d nginx
+	-v /full/path/to/html/directory:/usr/share/nginx/html:ro maps the directory holding our web page to the required location in the image. The ro field instructs Docker to mount it in read-only mode. It’s best to pass Docker the full paths when specifying host directories.
+	-p 8080:80 maps network service port 80 in the container to 8080 on our host system.
+	-d detaches the container from our command line session. Unlike our previous two examples, we don’t want to interact with this container.
+	pwd-nginx is the name of the image.
+
+6) netstat | grep 8080
+	check ports
+
+7) docker build -t mynginx .
+	create image tagged mynginx from docker file in '.' current directory
+
+8) docker run --name nix -d -p 8090:80 mynginx
+	start a container from image
+
