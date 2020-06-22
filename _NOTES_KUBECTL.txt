@@ -26,7 +26,7 @@ DETAILS
 Namespace: Kubernetes supports multiple virtual clusters backed by the same physical cluster. These virtual clusters are called namespaces. They let you partition resources into logically named groups.
 
 7) kubectl run hello-nginx --image=nginx --port=80
-	run nginx app in kubernetes
+	run nginx app in kubernetes -> Use kubectl run --generator=run-pod/v1 or kubectl create
 
 8) kubectl get pods
 	list pods on kube
@@ -49,6 +49,29 @@ Namespace: Kubernetes supports multiple virtual clusters backed by the same phys
 ##################################
 #Kubernetes - Images
 ##################################
+
+1) kubectl create -f pod.yaml
+	pull the image and create a container
+   kubectl create -f deployment.yaml
+
+2) kubectl logs rss-site rss-reader
+
+3) kubectl describe pod rss-site
+   kubectl describe deployment rss-site
+
+3) kubectl delete pods rss-site
+	delete pod
+	
+
+
+
+
+
+
+
+
+
+
 
 
 
