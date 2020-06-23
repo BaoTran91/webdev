@@ -1,4 +1,0 @@
-bases:
-- ../../Kustomize
-patchesStrategicMerge:
-- localserv.yaml
