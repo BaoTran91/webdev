@@ -1,0 +1,38 @@
+https://www.mirantis.com/blog/introduction-to-yaml-part-2-kubernetes-services-ingress-and-repeated-nodes/
+
+Services come in four different types:
+1) ClusterIP: The default ServiceType, a ClusterIP service makes the service reachable from within the cluster via a cluster-internal IP.
+2) NodePort: A NodePort service makes it possible to access a Service by directing requests to a specific port on every Node, accessed via the NodeIP. (Kubernetes automatically creates a ClusterIP service to route the request.) So from outside the cluster, you’d send the request to <NodeIP>:<NodePort>.
+3) LoadBalancer: In order to use a LoadBalancer service, you have to be using a cloud provider that supports it; it’s the cloud provider that actually makes this functionality available. This service sits on top of NodePort and ClusterIP services, which Kubernetes creates automatically.
+4) ExternalName: In production situations, you will likely want to use ExternalName, which maps the service to a CNAME record such as a Fully Qualified Domain Name.
+
+1)kubectl create -f app.yaml
+
+2) kubectl get svc
+
+3) kubectl describe svc nginx
+
+4) kubectl apply -f test.yaml
+	this change the service with the updated yaml
+
+ENDPOINT
+Endpoints are, as in other applications, the target to which you’ll send your requests in order to access an application. Kubernetes creates them automatically, but you can also create them manually and link them to a specific service.
+
+1) kubectl create -f endpoint.yaml
+2) kubectl describe endpoints mytest-cluster
+
+
+INGRESS
+In this final section, we’ll look at creating a Kubernetes Ingress, which makes it simpler to create access to your applications. We’ll also look at another aspect of using aliases.
+
+1) kubectl apply -f test.yaml
+
+
+
+
+
+
+
+
+
+

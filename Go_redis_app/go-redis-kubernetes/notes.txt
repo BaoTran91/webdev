@@ -1,0 +1,21 @@
+https://www.callicoder.com/deploy-multi-container-go-redis-app-kubernetes/
+
+# Build the image
+$ docker build -t go-redis-kubernetes .
+
+# Tag the image
+$ docker tag go-redis-kubernetes bqt1991/go-redis-app:1.0.0
+
+# Login to docker with your docker Id
+$ docker login
+Login with your Docker ID to push and pull images from Docker Hub. If you don\'t have a Docker ID, head over to https://hub.docker.com to create one.
+Username (callicoder): callicoder
+Password:
+Login Succeeded
+
+# Push the image to docker hub
+$ docker push bqt1991/go-redis-app:1.0.0
+
+
+
+kubectl apply -f deployments/redis-master.yml

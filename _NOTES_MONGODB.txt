@@ -1,0 +1,25 @@
+START
+- mongod
+
+ENTER MONGO SHELL
+-mongo
+
+use admin
+
+db.createUser(
+   {
+     user: "mynewuser",
+     pwd: "myuser123",
+     roles: [ "readWrite", "dbAdmin" ]
+   }
+);
+
+db.createUser(
+  {
+user: "bao",
+pwd: "MASter15",
+roles: [ { role: "userAdminAnyDatabase", db:
+"admin" } ] }
+)
+
+exit

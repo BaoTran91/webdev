@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: test-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+    paths:
+      - path: /testpath
+        backend: &stdbe
+          serviceName: test
+          servicePort: 80
+      - path: /realpath
+        backend: *stdbe
+      - path: /hiddenpath
+        backend:
+          << : *stdbe
+          servicePort: 443
