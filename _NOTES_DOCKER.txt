@@ -22,3 +22,5 @@ https://stackify.com/docker-tutorial/
 8) docker run --name nix -d -p 8090:80 mynginx
 	start a container from image
 
+9) docker ps --filter name=flask --format "{{.ID}}"
+
